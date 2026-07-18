@@ -1,0 +1,31 @@
+# Render deployment for PlugMart (TanStack Start / Nitro)
+services:
+  - type: web
+    name: plugmart
+    runtime: node
+    plan: starter
+    buildCommand: npm install && npm run build
+    startCommand: node .output/server/index.mjs
+    envVars:
+      - key: NITRO_PRESET
+        value: node-server
+      - key: NODE_VERSION
+        value: "22"
+      - key: VITE_SUPABASE_URL
+        sync: false
+      - key: VITE_SUPABASE_PUBLISHABLE_KEY
+        sync: false
+      - key: VITE_SUPABASE_PROJECT_ID
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_PUBLISHABLE_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: RAPIDAPI_KEY
+        sync: false
+      - key: RAPIDAPI_HOST
+        sync: false
+      - key: PAYSTACK_SECRET_KEY
+        sync: false
